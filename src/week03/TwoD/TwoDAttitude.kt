@@ -12,8 +12,8 @@ class TwoDAttitude(var position: TwoDValue,
 
     fun setDirectionAndSpeed(theta: Double,
                              speed: Double) {
-        position.x = speed * cos(theta)
-        position.y = speed * sin(theta)
+        velocity.x = speed * cos(theta)
+        velocity.y = speed * sin(theta)
     }
 
     fun setPosition(x: Double,
