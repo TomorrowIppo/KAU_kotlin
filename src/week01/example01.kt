@@ -38,6 +38,7 @@ fun main() {
      */
 
     // Q : 그럼 자바로 구현한 메소드가 int arr를 리턴할 때 코틀린에서 자동으로 객체로 변환하기에 문제가 없나?
+    // 박싱의 오버헤드 줄이기 위해서 ?
 
     val arr = arrayOf(1, 2, 3, 4)
     val iArr = intArrayOf(1, 2, 3, 4)
