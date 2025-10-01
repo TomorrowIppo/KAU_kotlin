@@ -6,25 +6,29 @@ class TwoDAttitude(var position: TwoDValue,
                    var velocity: TwoDValue) {
 
     fun passTime(time: Double) {
-        position.x += velocity.x * time
-        position.y += velocity.y * time
+//        position.x += velocity.x * time
+//        position.y += velocity.y * time
+        val newX = position.x + velocity.x * time
+        val newY = position.y + velocity.y * time
+        position = TwoDValue(newX, newY)
     }
 
     fun setDirectionAndSpeed(theta: Double,
                              speed: Double) {
-        velocity.x = speed * cos(theta)
-        velocity.y = speed * sin(theta)
+//        velocity.x = speed * cos(theta)
+//        velocity.y = speed * sin(theta)
+        val newX = speed * cos(theta)
+        val newY = speed * sin(theta)
+        velocity = TwoDValue(newX, newY)
     }
 
     fun setPosition(x: Double,
                     y: Double) {
-        position.x = x
-        position.y = y
+        position = TwoDValue(x, y)
     }
 
     fun setVelocity(x: Double,
                     y: Double) {
-        velocity.x = x
-        velocity.y = y
+        velocity = TwoDValue(x, y)
     }
 }
