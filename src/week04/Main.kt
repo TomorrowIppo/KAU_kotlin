@@ -51,6 +51,15 @@ class TwoDAttitude(val position: TwoDValue,
             val s = speed
             velocity.x = s * cos(value)
             velocity.y = s * sin(value)
+
+            /*
+
+                주의!!!!!!
+                만약
+                velocity.x = speed * cos(value)라고 구현하는 순간
+                연산하는 과정에서 speed의 값이 실시간으로 바뀌기 때문에 의도한 대로 작동 안할 수 있음.
+
+             */
         }
 
     // Lab: speed 프로퍼티는 velocity의 x와 y 값에 종속되어 유추되어야 하며,
@@ -114,8 +123,12 @@ fun main() {
     car.attitude.setPosition(1.0, 1.0)
 
     // Lab: 목적지 미설정 상태 -> 안전하게 탈출하여 다음 문장 (car.destination = TwoDValue(10.0, 0.0))을 수행하도록 만드시오
-    car.stepTowardDestination(1.0)
-    println("[${car.displayName}] pos=${car.attitude.position} vel=${car.attitude.velocity}")
+    try {
+        car.stepTowardDestination(1.0)
+        println("[${car.displayName}] pos=${car.attitude.position} vel=${car.attitude.velocity}")
+    } catch (e: IllegalStateException) {
+        println("No Destination")
+    }
 
     // 목적지 설정 (nullable에 값 할당)
     car.destination = TwoDValue(10.0, 0.0)
