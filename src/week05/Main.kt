@@ -40,8 +40,8 @@ fun main() {
     val circle3 = Circle(2.0, 2.0, 2.0)
 
     // To do: "XX만큼 겹쳤어요." 라는 문자열이 출력되는 람다함수 대입
-    Circle.overlapCallback = { overlapAmount ->
-        println("${overlapAmount}만큼 겹쳤어요.")
+    Circle.overlapCallback = {
+        println("${it}만큼 겹쳤어요.")
     }
 
     println("만든 총 원의 갯수: ${Circle.count}")
