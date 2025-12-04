@@ -1,0 +1,4 @@
+triangle 2 3
+rectangle 3 4
+circle 3
+rectangle 100 20
